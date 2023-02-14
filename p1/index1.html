@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 80%;
+            height: 100vh;
+            /* border: 1px solid rgb(21, 159, 0); */
+            background-color: #fcfcfc;
+            display: grid; 
+            margin: 0px auto;
+            /* align-content: center;
+            justify-content: center; */
+            grid-template-areas: "st bt van"
+                                 "st bt van"
+                                 "st c van"
+                                 "r c van"
+                                 "r c sn"
+                                 "r fl sn"
+                                 "r fl sn";
+           
+        }
+        .box>div{
+            /* border: 1px solid rgb(237, 49, 49); */
+            position: relative;
+            display: flex;
+            align-items: center;
+
+        }
+        .box>div:nth-of-type(1),
+        .box>div:nth-of-type(3),
+        .box>div:nth-of-type(4),
+        .box>div:nth-of-type(7){
+            justify-content: center;
+        }
+        .box>div>figure{
+            border: 0.3rem solid rgb(110, 110, 110);
+            position: absolute;
+            box-shadow: 4px 6px 8px #8d8e9b; 
+            display: flex;    
+            align-items: center;
+            justify-content: center;
+
+
+        }
+        .box>div:nth-of-type(2)>figure{
+            margin: auto 0;
+            left: 10px;
+            height: 90%;
+            width: 80%;
+        }
+        .box>div:nth-of-type(6)>figure{
+            margin: auto 0;
+            right: 10px;
+            height: 90%;
+            width: 80%;
+        }
+        .box>div:nth-of-type(1)>figure,
+        .box>div:nth-of-type(3)>figure,
+        .box>div:nth-of-type(4)>figure,
+        .box>div:nth-of-type(7)>figure{
+            width: 95%;
+            height: 97%;
+        }
+        .box>div:nth-of-type(5)>a{
+            position: absolute;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+        .box>div:nth-of-type(5)>a:first-child{
+            left: 20%;
+            top: 30%;
+            text-transform: uppercase;
+            font-size: 40px;
+            font-weight: bolder;
+            border-top: 3px solid #000;
+            border-bottom: 3px solid #ecd68c;
+            line-height: 50px;
+
+        }
+        .box>div:nth-of-type(5)>a:last-child{
+            left: 25%;
+            top: 60%;
+            font-size: 25px;
+        }
+        .box>div>figure>img{
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            width: 95%;
+            height: 93%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .box>div:nth-of-type(1){
+            grid-area: st;
+        }
+        .box>div:nth-of-type(2){
+            grid-area: bt;
+        }
+        .box>div:nth-of-type(3){
+            grid-area: van;
+        }
+        .box>div:nth-of-type(4){
+            grid-area: r;
+        }
+        .box>div:nth-of-type(5){
+            grid-area: c;
+        }
+        .box>div:nth-of-type(6){
+            grid-area: fl;
+        }
+        .box>div:nth-of-type(7){
+            grid-area: sn;
+        }
+        /* ********************************* */
+        .box>div>.test{
+            /* border: 1px solid rgb(208, 35, 35); */
+            position: absolute;
+            bottom: 70px;
+            left: 70px;
+            width: 0px;
+            height: 0px;
+            transition-property: width, height, background-color, opacity ;
+            transition-delay:0, 0.5s, 1.5s;
+            transition-duration: 0.5s, 1s, 0.5s ;
+            transition-timing-function: linear;
+            
+        }
+        .box>div:nth-of-type(6)>.test{
+            left: 100px;
+            bottom: 30px;
+        }
+        .box>div>.test>p{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 1.3vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-transform: capitalize;
+            opacity: 0;
+
+
+        }
+        .box>div:hover .test{
+            width: 190px;
+            height: 60px;
+            background-color: aliceblue;
+
+        }
+        .box>div:hover .test>p{
+            opacity: 1;
+            transition-property: opacity;
+            transition-delay: 1s;
+            transition-duration: 0 ;
+            transition-timing-function: linear;
+        }
+        /* ************************ */
+        .box>div>span:nth-of-type(1){
+            position: absolute;
+            left: 30px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            border-top: 5px solid rgb(255, 255, 255);
+            border-left: 5px solid rgb(255, 255, 255);
+        }
+        .box>div>span{
+            transition: 0.4s;
+        }
+        .box>div>span:nth-of-type(2){
+            position: absolute;
+            right: 30px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            border-top: 5px solid rgb(255, 255, 255);
+            border-right: 5px solid rgb(255, 255, 255);
+        }
+        .box>div>span:nth-of-type(3){
+            position: absolute;
+            left: 30px;
+            bottom: 25px;
+            width: 20px;
+            height: 20px;
+            border-bottom: 5px solid rgb(255, 255, 255);
+            border-left: 5px solid rgb(255, 255, 255);
+        }
+        .box>div>span:nth-of-type(4){
+            position: absolute;
+            right: 30px;
+            bottom: 25px;
+            width: 20px;
+            height: 20px;
+            border-bottom: 5px solid rgb(255, 255, 255);
+            border-right: 5px solid rgb(255, 255, 255);
+        }
+        .box>div:hover>span:nth-of-type(1){
+            left: 55px;
+            top: 50px;
+        }
+        .box>div:hover>span:nth-of-type(2){
+            right: 55px;
+            top: 50px;
+        }
+        .box>div:hover>span:nth-of-type(3){
+            left: 55px;
+            bottom: 50px;
+        }
+        .box>div:hover>span:nth-of-type(4){
+            bottom: 50px;
+            right: 55px;
+
+        }
+    </style>
+
+</head>
+<body>
+    <section class="box">
+        <div>
+            <figure>
+                <img src="asset/image/p1/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="">
+            </figure>
+            <section class="test">
+                <p>
+                    starry night
+                </p>
+            </section>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+        <div>
+            <figure>
+                <img src="asset/image/p1/Bank_of_the_Oise_at_Auvers.jpg" alt="">
+            </figure>
+            <section class="test">
+                <p>
+                    Bank of the Oise
+                </p>
+            </section>
+        </div>
+        <div>
+            <figure>
+                <img src="asset/image/p1/741px-Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg" alt="">
+            </figure>
+            <section class="test">
+                <p>
+                    van Gogh Self-portrait
+                </p>
+            </section>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <figure>
+                <img src="asset/image/p1/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg" alt="">
+            </figure>
+            <section class="test">
+                <p>
+                    Wheatfield with crows
+                </p>
+            </section>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <a>
+                van gogh
+            </a>
+            <a>
+                art .
+            </a>
+        </div>
+        <div>
+            <figure>
+                <img src="asset/image/p1/merlin_152482185_d1d1b829-bdcd-403a-8fc0-81e08b496542-articleLarge.jpg" alt="">
+            </figure>
+            <section class="test">
+                <p>
+                    merlin
+                </p>
+            </section>
+        </div>
+        <div>
+            <figure>
+                <img src="asset/image/p1/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg" alt="">
+            </figure>
+            <section class="test">
+                <p>
+                    Sunflowers
+                </p>
+            </section>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+    
+</body>
+</html>
